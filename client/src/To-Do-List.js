@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Card, Header, Form, Input, Icon } from "semantic-ui-react";
-
-let endpoint = "http://localhost:8080";
+// trade-off : clean-code vs 12factors
+let endpoint = window.process.env.REACT_APP_API_ENDPOINT;
 
 class ToDoList extends Component {
   constructor(props) {

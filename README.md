@@ -1,92 +1,60 @@
-# :memo: Go To Do App
+# Go To Do App
 
-This is a to-do list application. The complete tutorial is published on [my blog](https://schadokar.dev/posts/build-a-todo-app-in-golang-mongodb-and-react/).  
+This a 3 tier **To-Do List** application,  where: 
 
-**Server: Golang  
-Client: React, semantic-ui-react  
-Database: Local MongoDB**
+- Data tier is NoSQL with mongo
+- API tier is Golang (exposed to the host on port 8080)
+- Frontend tier is React (exposed to the host on port 8081)
 
-The offline version of application `Get Shit Done` is hosted at  
 
-:link: https://schadokar.github.io/go-to-do-app/     
+# Prerequisites 
 
-:link: http://getshitdone.surge.sh
+Running this app locally require :
+- Make (3.81 or later)
+- Docker (v19.03 or later)
+- Docker Compose (v1.25.5 or later)
 
----
+**For kubernetes run** you need also : 
 
-# :pen: Application Requirement
+- Helm (v3.3.3 or later)
+- Helmfile (v0.129.3 or later)
+- Local kubernetes cluster (v1.16 or above) - Docker-for-Desktop is recommended
 
-### golang server requirement
+> More Details about [How to setup local k8s cluster with wildcard SSL certificate attached with the ingress](https://github.com/kubernetes-tn/guideline-kubernetes-enterprise/blob/master/general/desktop-env-setup.md)
 
-1. golang https://golang.org/dl/
-2. gorilla/mux library for router `go get -u github.com/gorilla/mux`
-3. mongo-driver library to connect with mongoDB `go get go.mongodb.org/mongo-driver`
+> `helm -f helmfile.ecosystem.yaml apply` might be useful
 
-### react client
+# Getting Started
 
-From the Application directory
+**1. configure it**
 
-`create-react-app client`
+- generate .env file `cp .env.example .env`
+- populate env vars `export $(cat .env| xargs)`
 
-# :computer: Start the application
+**2.a. start it with docker-compose** run `docker-compose up -d` or `make up`
+then navigate to http://localhost:8081 
+or interact directly with API thru localhost:8080 endpoint
 
-1. Make sure your mongoDB is started
-2. From server directory, open a terminal and run
-   `go run main.go`
-3. From client directory,  
-   a. install all the dependencies using `npm install`  
-   b. start client `npm start`
+ALTERNATIVELY
 
-# :panda_face: Walk through the application
+**2.b. start it with helmfile**
 
-Open application at http://localhost:3000
+- built images `make`
+- Run it on kubernetes `make k8s.up`
 
-### Index page
+then navigate to https://todo.docker.internal
+or interact directly with API thru https://todo-api.docker.internal endpoint
 
-![](https://github.com/schadokar/go-to-do-app/blob/master/images/index.PNG)
+> If you don't have ingress in the cluster, we recommend running `make k8s.up.ecosystem` after visiting [helmfile.ecosystem.yaml](helmfile.ecosystem.yaml) file.
 
-### Create task
+# Contribution
 
-Enter a task and Enter
+Guide for Contribution is [here](./CONTRIBUTING.md).
 
-![](https://github.com/schadokar/go-to-do-app/blob/master/images/createTask.PNG)
+# Authors 
 
-### Task Complete
-
-On completion of a task, click "done" Icon of the respective task card.
-
-![](https://github.com/schadokar/go-to-do-app/blob/master/images/taskComplete.PNG)
-
-You'll notice on completion of task, card's bottom line color changed from yellow to green.
-
-### Undo a task
-
-To undone a task, click on "undo" Icon,
-
-![](https://github.com/schadokar/go-to-do-app/blob/master/images/createTask.PNG)
-
-You'll notice on completion of task, card's bottom line color changed from green to yellow.
-
-### Delete a task
-
-To delete a task, click on "delete" Icon.
-
-![](https://github.com/schadokar/go-to-do-app/blob/master/images/deletetask.PNG)
-
----
-
-# Author  
-
-#### :sun_with_face: Shubham Kumar Chadokar  
-
-I am software engineer and love to write articles and tutorials on golang, blockchain, and nodejs.  
-Please checkout my other articles on :link: https://schadokar.dev :tada:
-
-# References
-
-https://godoc.org/go.mongodb.org/mongo-driver/mongo  
-https://www.mongodb.com/blog/post/mongodb-go-driver-tutorial  
-https://vkt.sh/go-mongodb-driver-cookbook/    
+- Shubham Kumar Chadokar <https://schadokar.dev> - Software Owner & Initiator
+- Abdennour Toumi <http://kubernetes.tn> - Adding Cloud-native aspect on the software (docker, helm, kubernetes) 
 
 # License
 

@@ -6,8 +6,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
-	"../models"
+	"github.com/abdennour/go-to-do-app/models"
 	"github.com/gorilla/mux"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -17,11 +18,11 @@ import (
 )
 
 // DB connection string
-// const connectionString = "mongodb://localhost:27017"
-const connectionString = "Connection String"
+// const connectionString = "mongodb://localhost:27017/dbname"
+var connectionString = os.Getenv("DB_CONNECTION")
 
 // Database Name
-const dbName = "test"
+var dbName = os.Getenv("DB_NAME")
 
 // Collection name
 const collName = "todolist"
@@ -124,6 +125,11 @@ func DeleteAllTask(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(count)
 	// json.NewEncoder(w).Encode("Task not found")
 
+}
+
+// GetHealth of the app - useful for probes
+func GetHealth(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
 }
 
 // get all task from the DB and return it
