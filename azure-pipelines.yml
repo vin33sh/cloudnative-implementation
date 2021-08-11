@@ -48,6 +48,7 @@ steps:
     /usr/local/bin/helm chart push infykubedemo.azurecr.io/helm/to-do-api:0.1.0
     echo 'Removing from local cache'
     /usr/local/bin/helm chart remove infykubedemo.azurecr.io/helm/to-do-api:0.1.0
+    /usr/local/bin/helm repo update
 
 #- task: HelmDeploy@0
 #  displayName: Helm save
