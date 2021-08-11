@@ -67,10 +67,11 @@ steps:
      kubernetesServiceConnection: 'KubeMigrateServiceConnection'
      namespace: 'default'
      command: 'install'
-     chartType: 'Name'
-     chartName: 'infykubedemo.azurecr.io/helm-charts/to-do-api:0.1.0'
+     chartType: 'FilePath'
+     chartPath: 'helm-charts/to-do-api'
      releaseName: 'sample-app-go'
      valueFile: 'helm-charts/to-do-api/values.yaml'
      arguments: '--set DB_CONNECTION=$(DB_CONNECTION) --set DB_NAME=$(DB_NAME) --set image.repository=$(IMAGE_REPOSITORY_API) --set ingress.hosts[0].host=$(KUBE_MIGRATE_HOSTNAME)'
+
 
 
