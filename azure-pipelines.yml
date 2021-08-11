@@ -38,10 +38,8 @@ steps:
 - task: HelmDeploy@0
   continueOnError: true
   inputs:
-     connectionType: 'Azure Resource Manager'
-     azureSubscription: 'Microsoft Azure Enterprise (83cc3e46-0000-4be1-a33f-f757490dcebc)'
-     azureResourceGroup: 'InfyKubeDemo'
-     kubernetesCluster: 'KubeMigrate'
+     connectionType: 'Kubernetes Service Connection'
+     kubernetesServiceConnection: 'KubeMigrateServiceConnection'
      namespace: 'default'
      command: 'install'
      chartType: 'FilePath'
