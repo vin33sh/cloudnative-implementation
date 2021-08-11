@@ -38,17 +38,18 @@ steps:
 
 - script: |
     export HELM_EXPERIMENTAL_OCI=1
-    helm registry login infykubedemo.azurecr.io -u $(ACR_USERNAME) -p $(ACR_PASSWORD)
+    cat /home/infyvstsuser/acrsecret.txt | /usr/local/bin/helm registry login infykubedemo.azurecr.io --username infykubedemo --password-stdin
+    /usr/local/bin/helm chart push infykubedemo.azurecr.io/helm/sample-app-go:0.1.0
 
-- task: HelmDeploy@0
-  displayName: Helm save
-  inputs:
+#- task: HelmDeploy@0
+#  displayName: Helm save
+#  inputs:
 #    azureSubscriptionEndpointForACR: 'Microsoft Azure Enterprise (83cc3e46-0000-4be1-a33f-f757490dcebc)'
 #    azureResourceGroupForACR: 'InfyKubeDemo'
 #    azureContainerRegistry: 'infykubedemo.azurecr.io'
-    command: 'save'
-    chartNameForACR: 'sample-app-go'
-    chartPathForACR: 'helm-charts/to-do-api/'
+#    command: 'save'
+#    chartNameForACR: 'sample-app-go'
+#    chartPathForACR: 'helm-charts/to-do-api/'
 
 - task: HelmDeploy@0
   continueOnError: true
