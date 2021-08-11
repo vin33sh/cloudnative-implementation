@@ -42,11 +42,11 @@ steps:
     echo 'Building chart'
     /usr/local/bin/helm chart save helm-charts/to-do-api/ to-do-api
     echo 'Tagging chart'
-    /usr/local/bin/helm chart save helm-charts/to-do-api/ infykubedemo.azurecr.io/helm-charts/to-do-api
+    /usr/local/bin/helm chart save helm-charts/to-do-api/ infykubedemo.azurecr.io/helm/to-do-api
     echo 'Pushing chart'
-    /usr/local/bin/helm chart push infykubedemo.azurecr.io/helm-charts/to-do-api
+    /usr/local/bin/helm chart push infykubedemo.azurecr.io/helm/to-do-api
     echo 'Removing from local cache'
-    /usr/local/bin/helm chart remove infykubedemo.azurecr.io/helm-charts/to-do-api
+    /usr/local/bin/helm chart remove infykubedemo.azurecr.io/helm/to-do-api
 
 #- task: HelmDeploy@0
 #  displayName: Helm save
