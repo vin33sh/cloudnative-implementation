@@ -24,6 +24,7 @@ steps:
     echo See https://aka.ms/yaml
     
 - task: HelmDeploy@0
+  continueOnError: true
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceConnection: 'KubeMigrateServiceConnection'
@@ -35,6 +36,7 @@ steps:
     arguments: '--set mongodbRootPassword=$(DB_ROOT_PASS) --set mongodbUsername=$(DB_USER) --set mongodbPassword=$(DB_PASS) --set mongodbDatabase=$(DB_NAME) --set externalAccess.enabled=false --set replicaSet.enabled=true --set auth.username=$(DB_USER) --set auth.password=$(DB_PASS) --set auth.database=$(DB_NAME)'
 
 - task: HelmDeploy@0
+  continueOnError: true
   inputs:
      connectionType: 'Azure Resource Manager'
      azureSubscription: 'Microsoft Azure Enterprise (83cc3e46-0000-4be1-a33f-f757490dcebc)'
