@@ -36,30 +36,6 @@ steps:
     releaseName: 'mongodb'
     arguments: '--set mongodbRootPassword=$(DB_ROOT_PASS) --set mongodbUsername=$(DB_USER) --set mongodbPassword=$(DB_PASS) --set mongodbDatabase=$(DB_NAME) --set externalAccess.enabled=false --set replicaSet.enabled=true --set auth.username=$(DB_USER) --set auth.password=$(DB_PASS) --set auth.database=$(DB_NAME)'
 
-- script: |
-    export HELM_EXPERIMENTAL_OCI=1
-    cat /home/infyvstsuser/acrsecret.txt | /usr/local/bin/helm registry login infykubedemo.azurecr.io --username infykubedemo --password-stdin
-    echo 'Building chart'
-    /usr/local/bin/helm chart save helm-charts/to-do-api to-do-api:0.1.0
-    echo 'Tagging chart'
-    /usr/local/bin/helm chart save helm-charts/to-do-api infykubedemo.azurecr.io/helm/to-do-api:0.1.0
-    helm chart list
-    echo 'Pushing chart'
-    /usr/local/bin/helm chart push infykubedemo.azurecr.io/helm/to-do-api:0.1.0
-    echo 'Removing from local cache'
-    /usr/local/bin/helm chart remove infykubedemo.azurecr.io/helm/to-do-api:0.1.0
-    /usr/local/bin/helm repo update
-
-#- task: HelmDeploy@0
-#  displayName: Helm save
-#  inputs:
-#    azureSubscriptionEndpointForACR: 'Microsoft Azure Enterprise (83cc3e46-0000-4be1-a33f-f757490dcebc)'
-#    azureResourceGroupForACR: 'InfyKubeDemo'
-#    azureContainerRegistry: 'infykubedemo.azurecr.io'
-#    command: 'save'
-#    chartNameForACR: 'sample-app-go'
-#    chartPathForACR: 'helm-charts/to-do-api/'
-
 - task: HelmDeploy@0
   continueOnError: true
   inputs:
