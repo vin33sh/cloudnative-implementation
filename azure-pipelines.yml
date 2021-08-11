@@ -40,13 +40,14 @@ steps:
     export HELM_EXPERIMENTAL_OCI=1
     cat /home/infyvstsuser/acrsecret.txt | /usr/local/bin/helm registry login infykubedemo.azurecr.io --username infykubedemo --password-stdin
     echo 'Building chart'
-    /usr/local/bin/helm chart save helm-charts/to-do-api/ to-do-api
+    /usr/local/bin/helm chart save helm-charts/to-do-api to-do-api:0.1.0
     echo 'Tagging chart'
-    /usr/local/bin/helm chart save helm-charts/to-do-api/ infykubedemo.azurecr.io/helm/to-do-api
+    /usr/local/bin/helm chart save helm-charts/to-do-api infykubedemo.azurecr.io/helm/to-do-api:0.1.0
+    helm chart list
     echo 'Pushing chart'
-    /usr/local/bin/helm chart push infykubedemo.azurecr.io/helm/to-do-api
+    /usr/local/bin/helm chart push infykubedemo.azurecr.io/helm/to-do-api:0.1.0
     echo 'Removing from local cache'
-    /usr/local/bin/helm chart remove infykubedemo.azurecr.io/helm/to-do-api
+    /usr/local/bin/helm chart remove infykubedemo.azurecr.io/helm/to-do-api:0.1.0
 
 #- task: HelmDeploy@0
 #  displayName: Helm save
