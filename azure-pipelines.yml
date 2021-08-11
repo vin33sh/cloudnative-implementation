@@ -39,7 +39,10 @@ steps:
 - script: |
     export HELM_EXPERIMENTAL_OCI=1
     cat /home/infyvstsuser/acrsecret.txt | /usr/local/bin/helm registry login infykubedemo.azurecr.io --username infykubedemo --password-stdin
-    /usr/local/bin/helm chart push infykubedemo.azurecr.io/helm/sample-app-go:0.1.0
+    /usr/local/bin/helm chart save helm-charts/to-do-api/ to-do-api
+    /usr/local/bin/helm chart save helm-charts/to-do-api/ infykubedemo.azurecr.io/helm-charts/to-do-api
+    /usr/local/bin/helm chart push infykubedemo.azurecr.io/helm-charts/to-do-api
+    /usr/local/bin/helm chart remove infykubedemo.azurecr.io/helm-charts/to-do-api
 
 #- task: HelmDeploy@0
 #  displayName: Helm save
@@ -59,7 +62,7 @@ steps:
      namespace: 'default'
      command: 'install'
      chartType: 'Name'
-     chartPath: 'infykubedemo.azurecr.io/helmcharts/sample-app-go'
+     chartPath: 'infykubedemo.azurecr.io/helm-charts/to-do-api'
      releaseName: 'sample-app-go'
      valueFile: 'helm-charts/to-do-api/values.yaml'
      arguments: '--set DB_CONNECTION=$(DB_CONNECTION) --set DB_NAME=$(DB_NAME) --set image.repository=$(IMAGE_REPOSITORY_API) --set ingress.hosts[0].host=$(KUBE_MIGRATE_HOSTNAME)'
