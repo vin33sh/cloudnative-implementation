@@ -15,7 +15,7 @@ steps:
     containerregistrytype: 'Azure Container Registry'
     azureSubscription: 'Microsoft Azure Enterprise (83cc3e46-0000-4be1-a33f-f757490dcebc)'
     azureContainerRegistry: '{"loginServer":"infykubedemo.azurecr.io", "id" : "/subscriptions/83cc3e46-0000-4be1-a33f-f757490dcebc/resourceGroups/InfyKubeDemo/providers/Microsoft.ContainerRegistry/registries/infykubedemo"}'
-    dockerComposeFile: 'docker-compose.yml'
+    dockerComposeFile: 'docker-compose.yaml'
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'build'
 
