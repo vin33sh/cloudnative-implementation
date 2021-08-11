@@ -31,7 +31,7 @@ steps:
     command: 'install'
     chartType: 'Name'
     chartName: 'bitnami/mongodb'
+    releaseName: 'mongodb'
     arguments: '--set mongodbRootPassword=$(DB_ROOT_PASS) --set mongodbUsername=$(DB_USER) --set mongodbPassword=$(DB_PASS) --set mongodbDatabase=$(DB_NAME) --set externalAccess.enabled=false --set replicaSet.enabled=true --set auth.username=$(DB_USER) --set auth.password=$(DB_PASS) --set auth.database=$(DB_NAME)'
-  displayName: 'Deploying Mongo With Helm'
   
 
