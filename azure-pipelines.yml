@@ -33,5 +33,18 @@ steps:
     chartName: 'bitnami/mongodb'
     releaseName: 'mongodb'
     arguments: '--set mongodbRootPassword=$(DB_ROOT_PASS) --set mongodbUsername=$(DB_USER) --set mongodbPassword=$(DB_PASS) --set mongodbDatabase=$(DB_NAME) --set externalAccess.enabled=false --set replicaSet.enabled=true --set auth.username=$(DB_USER) --set auth.password=$(DB_PASS) --set auth.database=$(DB_NAME)'
-  
+
+- task: HelmDeploy@0
+  inputs:
+     connectionType: 'Azure Resource Manager'
+     azureSubscription: 'Microsoft Azure Enterprise (83cc3e46-0000-4be1-a33f-f757490dcebc)'
+     azureResourceGroup: 'InfyKubeDemo'
+     kubernetesCluster: 'KubeMigrate'
+     namespace: 'default'
+     command: 'install'
+     chartType: 'FilePath'
+     chartPath: 'helm-charts/to-do-api/Chart.yaml'
+     releaseName: 'sample-app-go'
+     valueFile: 'helm-charts/to-do-api/values.yaml'
+     arguments: '--set DB_CONNECTION=$(DB_CONNECTION) --set DB_NAME=$(DB_NAME) --set image.repository=$(IMAGE_REPOSITORY_API) --set ingress.hosts[0].host=$(KUBE_MIGRATE_HOSTNAME)'
 
