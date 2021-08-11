@@ -42,7 +42,7 @@ steps:
     azureContainerRegistry: 'infykubedemo.azurecr.io'
     command: 'save'
     chartNameForACR: 'sample-app-go'
-    chartPathForACR: 'helm-charts'
+    chartPathForACR: 'helm-charts/to-do-api/'
 
 - task: HelmDeploy@0
   continueOnError: true
