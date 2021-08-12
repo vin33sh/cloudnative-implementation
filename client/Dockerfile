@@ -16,7 +16,7 @@ RUN npm run build
 FROM abdennour/nginx-distroless-unprivileged:1.18 as release
 WORKDIR /opt/app
 COPY --from=build --chown=1001:0 /code/conf/nginx /etc/nginx/conf.d
-COPY --from=build  --chown=1001:0 /code/build/. .
+COPY --from=build  --chown=1001:0 /code/build/. ./todo/
 EXPOSE 8080
 USER 1001
 # stage - dev
