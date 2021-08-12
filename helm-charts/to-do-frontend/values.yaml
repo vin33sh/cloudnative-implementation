@@ -58,7 +58,7 @@ ingress:
   hosts:
   - host: ""
     paths:
-      - path: /
+      - path: /todo/?(.*)
         pathType: Prefix
         backend:
           serviceName: sample-app-react-to-do-frontend
