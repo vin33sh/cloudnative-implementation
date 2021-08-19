@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-08-19T10:06:22.277Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="WQvjPpejqI5V3cd78flB" version="14.7.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-08-19T10:31:04.759Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36" etag="Zg54jKHsVE4j4koQHary" version="14.7.1" type="github">
   <diagram name="Architecture" id="Architecture">
-    <mxGraphModel dx="868" dy="492" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="723" dy="410" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -725,6 +725,29 @@
             <mxPoint x="117" y="407" as="sourcePoint" />
             <mxPoint x="117.00039486100033" y="186" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="hf0VJrkIW_zBK1x3jeT--177" value="" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;shadow=0;dashed=1;fontSize=12;strokeColor=#6666FF;strokeWidth=1;fillColor=none;image=https://miro.medium.com/max/256/1*1Cc99RF4vtCSKaHDgz_iyQ.png;" vertex="1" parent="1">
+          <mxGeometry x="659" y="280" width="38" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="hf0VJrkIW_zBK1x3jeT--178" style="vsdxID=111;edgeStyle=none;dashed=1;startArrow=none;endArrow=block;startSize=5;endSize=2;strokeColor=#2e75b6;spacingTop=0;spacingBottom=0;spacingLeft=0;spacingRight=0;verticalAlign=middle;html=1;labelBackgroundColor=#ffffff;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-1" as="offset" />
+            <Array as="points" />
+            <mxPoint x="600" y="298.65999999999997" as="sourcePoint" />
+            <mxPoint x="659" y="298.65999999999997" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hf0VJrkIW_zBK1x3jeT--179" value="&lt;font style=&quot;font-size: 8px&quot;&gt;Persistent Volumes&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="629" y="313" width="98" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hf0VJrkIW_zBK1x3jeT--180" value="" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;shadow=0;dashed=1;fontSize=12;strokeColor=#6666FF;strokeWidth=1;fillColor=none;image=https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/react-512.png;" vertex="1" parent="1">
+          <mxGeometry x="494" y="359" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="hf0VJrkIW_zBK1x3jeT--187" value="" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;fontSize=12;strokeColor=#000000;image=https://user-images.githubusercontent.com/3613230/41752586-476b0b24-7596-11e8-95fe-8fd3faa21e8a.png;" vertex="1" parent="1">
+          <mxGeometry x="522" y="391" width="32.87" height="29" as="geometry" />
+        </mxCell>
+        <mxCell id="hf0VJrkIW_zBK1x3jeT--188" value="" style="shape=image;imageAspect=0;aspect=fixed;verticalLabelPosition=bottom;verticalAlign=top;shadow=0;dashed=1;fontSize=12;strokeColor=#6666FF;strokeWidth=1;fillColor=none;image=https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png;" vertex="1" parent="1">
+          <mxGeometry x="592" y="300" width="29" height="29" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
